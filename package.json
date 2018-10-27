@@ -1,0 +1,25 @@
+{
+  "name": "algolia-search-tutorial",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "crawler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IrfaanKhalid/algolia-search-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IrfaanKhalid/algolia-search-tutorial/issues"
+  },
+  "homepage": "https://github.com/IrfaanKhalid/algolia-search-tutorial#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "puppeteer": "^1.9.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
