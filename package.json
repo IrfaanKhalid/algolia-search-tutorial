@@ -2,9 +2,9 @@
   "name": "algolia-search-tutorial",
   "version": "1.0.0",
   "description": "## Description",
-  "main": "crawler.js",
+  "main": "src/crawler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/crawler.js"
   },
   "repository": {
     "type": "git",
