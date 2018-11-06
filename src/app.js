@@ -4,8 +4,8 @@ const indexer = require('./indexer.js');
 async function search(prereq) {
   let index = await indexer.buildIndex();
 
-  // Search for a first name with typo
-  index.search('01:198:205', function (err, content) {
+  // Search for a prereq
+  index.search(prereq, function (err, content) {
     console.log(content.hits);
   });
 }
