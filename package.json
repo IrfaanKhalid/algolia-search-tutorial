@@ -4,7 +4,7 @@
   "description": "## Description",
   "main": "src/crawler.js",
   "scripts": {
-    "start": "node ./src/crawler.js"
+    "start": "node ./src/search.js"
   },
   "repository": {
     "type": "git",
