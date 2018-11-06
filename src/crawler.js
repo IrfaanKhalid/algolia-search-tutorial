@@ -2,6 +2,7 @@ const rp = require('request-promise');
 const $ = require('cheerio');
 const url = 'http://catalogs.rutgers.edu/generated/nb-ug_current/pg159.html';
 
+
 let getCourses = () => {
   // Request data from the url above
   rp(url)
@@ -22,7 +23,7 @@ let getCourses = () => {
         courses[i].prereqs = $('.course-prereq', container).text();
       });
 
-      // Now we return the array
+      // Let's return the array of courses
       return courses;
     })
     // The request ran into an error - let's log the exact error to our console
@@ -31,5 +32,5 @@ let getCourses = () => {
     });
 }
 
-// Export the crawl function
+// Export our crawling function, getCourses()
 module.exports.getCourses = getCourses;
