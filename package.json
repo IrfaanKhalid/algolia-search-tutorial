@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/IrfaanKhalid/algolia-search-tutorial#readme",
   "dependencies": {
+    "algoliasearch": "^3.30.0",
     "cheerio": "^1.0.0-rc.2",
-    "puppeteer": "^1.9.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }
