@@ -3,34 +3,29 @@ const $ = require('cheerio');
 const url = 'http://catalogs.rutgers.edu/generated/nb-ug_current/pg159.html';
 
 
-let getCourses = () => {
+async function getCourses() {
+  // Let's make an array to store our courses
+  let courses = [];
+
   // Request data from the url above
-  rp(url)
-    // The request was successful!
-    .then(function (html) {
-      // Make an array of courses
-      let courses = [];
+  let html = await rp(url);
 
-      // Iterate over all courses
-      $('div.item-container', html).each(function (i, container) {
-        // Make a new course object at this index
-        courses[i] = {};
+  // Iterate over all courses
+  $('div.item-container', html).each = (i, container) => {
+    // Grab some vital course information from this container
+    courses[i] = {
+      code: $('.course-annotation', container).text(),
+      title: $('.course-title', container).text(),
+      desc: $('.course-desc', container).text(),
+      prereqs: $('.course-prereq', container).text()
+    }
+  };
 
-        // Grab some vital course information from this container
-        courses[i].code = $('.course-annotation', container).text();
-        courses[i].title = $('.course-title', container).text();
-        courses[i].desc = $('.course-desc', container).text();
-        courses[i].prereqs = $('.course-prereq', container).text();
-      });
-
-      // Let's return the array of courses
-      return courses;
-    })
-    // The request ran into an error - let's log the exact error to our console
-    .catch(function (err) {
-      return err;
-    });
-}
+  // Return our array of courses
+  return courses;
+};
 
 // Export our crawling function, getCourses()
-module.exports.getCourses = getCourses;
+module.exports = {
+  getCourses
+};
