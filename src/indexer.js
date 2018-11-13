@@ -1,6 +1,6 @@
 const crawler = require('./crawler.js');
 const algoliasearch = require('algoliasearch');
-const client = algoliasearch('APPLICATION_ID', 'YOUR_API_KEY');
+const client = algoliasearch('YOUR-APPLICATION-ID', 'YOUR-API-KEY');
 
 async function buildIndex() {
   // Wait for the async getCourses() function to resolve and store all courses
@@ -15,17 +15,28 @@ async function buildIndex() {
       'prereqs'
     ]
   }, function (err, content) {
-    // Log a possible error
     if (err) {
       console.log(err);
+    } else {
+      console.log(content);
     }
   });
 
-  // Populate the search index
+  // Clear the index in case any residual values from past indexing are still around
+  index.clearIndex(function (err, content) {
+    if (err) {
+      throw err;
+    } else {
+      console.log(content);
+    }
+  });
+
+  // Populate the search index with our courses
   index.addObjects(courses, function (err, content) {
-    // Log a possible error
     if (err) {
       console.log(err);
+    } else {
+      console.log(content);
     }
   });
 
@@ -33,6 +44,7 @@ async function buildIndex() {
   return index;
 }
 
+// Export our buildIndex function
 module.exports = {
   buildIndex
 };
