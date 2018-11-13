@@ -6,8 +6,13 @@ async function search(prereq) {
 
   // Search for a prereq
   index.search(prereq, function (err, content) {
-    console.log(content.hits);
+    if (err) {
+      throw err;
+    } else {
+      console.log(content.hits);
+    }
   });
 }
 
+// Conduct a search 
 search('01:640:025');
