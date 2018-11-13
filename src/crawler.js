@@ -11,15 +11,14 @@ async function getCourses() {
   let html = await rp(url);
 
   // Iterate over all courses
-  $('div.item-container', html).each = (i, container) => {
-    // Grab some vital course information from this container
-    courses[i] = {
+  $('div.item-container', html).map(container =>
+    courses.push({
       code: $('.course-annotation', container).text(),
       title: $('.course-title', container).text(),
       desc: $('.course-desc', container).text(),
       prereqs: $('.course-prereq', container).text()
-    }
-  };
+    })
+  );
 
   // Return our array of courses
   return courses;
