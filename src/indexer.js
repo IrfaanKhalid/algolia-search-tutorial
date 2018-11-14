@@ -2,6 +2,7 @@ const crawler = require('./crawler.js');
 const algoliasearch = require('algoliasearch');
 const client = algoliasearch('YOUR-APPLICATION-ID', 'YOUR-API-KEY');
 
+// Define an async function to build a search index
 async function buildIndex() {
   // Wait for the async getCourses() function to resolve and store all courses
   let courses = await crawler.getCourses();

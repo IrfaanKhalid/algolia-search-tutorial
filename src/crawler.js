@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const $ = require('cheerio');
 const url = 'http://catalogs.rutgers.edu/generated/nb-ug_current/pg159.html';
 
-
+// Define an async function to get all the catalog's courses
 async function getCourses() {
   // Let's make an array to store our courses
   let courses = [];
