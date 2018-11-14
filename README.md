@@ -12,3 +12,4 @@ In this tutorial, we'll be scraping a course catalog with Puppeteer and Cheerio,
 - [request-promise](https://github.com/request/request-promise)
 - [Cheerio](https://github.com/cheeriojs/cheerio)
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer)
+- [fs](https://github.com/nodejs/node/blob/master/doc/api/fs.md)
