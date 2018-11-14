@@ -1,4 +1,5 @@
 const rp = require('request-promise');
+// const fs = require('fs'); /* Only use if falling back to loading HTML locally */
 const $ = require('cheerio');
 const url = 'http://catalogs.rutgers.edu/generated/nb-ug_current/pg159.html';
 
@@ -9,6 +10,9 @@ async function getCourses() {
 
   // Request data from the url above
   let html = await rp(url);
+
+  /* Only use if falling back to loading HTML locally - and remember to comment out line 12! */
+  // let html = ($.load(fs.readFileSync('src/rutgers-course-catalog.html'))).html();
 
   // Iterate over all courses
   $('div.item-container', html).map(container =>
@@ -28,3 +32,5 @@ async function getCourses() {
 module.exports = {
   getCourses
 };
+
+getCourses();
