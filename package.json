@@ -19,6 +19,7 @@
   "dependencies": {
     "algoliasearch": "^3.30.0",
     "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }
